@@ -54,12 +54,11 @@ def write_matrix(output, matrix):
     with open(output, 'w') as f:
         f.write('\n'.join(map(lambda row: '\t'.join(map(lambda x: str(round(x, 4)), row)), matrix)))
 
-def main():
+if __name__ == "__main__" :
     if len(sys.argv) != 3:
-        print ('Incorrect input format\n')
+        print('Incorrect input format\n')
     else:
         start = time.process_time()
         write_matrix(sys.argv[2], FloydWarshall.calculate(build_matrix(read_data(sys.argv[1]))))
         end = time.process_time()
         print("Time consumption: {} sec".format((end - start)))
-
