@@ -34,7 +34,7 @@ def add_edge_to_matrix(matrix, edge):
 
 def build_matrix(data):
     net_len = len(data['net'])
-    matrix = np.zeros(net_len, net_len)
+    matrix = np.zeros((net_len, net_len))
 
     for record in data['resistors']:
         for edge in get_edges_from_record(record, False):
