@@ -1,6 +1,6 @@
 __author__ = 'loskutyan'
 
-from  xml.dom.minidom import parse
+from xml.dom.minidom import parse
 import numpy as np
 import sys
 import time
