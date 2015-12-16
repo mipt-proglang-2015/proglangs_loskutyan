@@ -56,7 +56,7 @@ static PyObject* FloydWarshall(PyObject* module, PyObject* args) {
 PyMODINIT_FUNC PyInit_FloydWarshall()
 {
     static PyMethodDef ModuleMethods[] = {
-            { "FloydWarshall", FloydWarshall, METH_VARARGS, NULL },
+            { "calculate", FloydWarshall, METH_VARARGS, NULL },
             { NULL }
     };
     static PyModuleDef ModuleDef = {
