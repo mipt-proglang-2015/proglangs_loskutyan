@@ -6,12 +6,14 @@ import sys
 import time
 import FloydWarshall
 
+
 def read_data(input):
     data = parse(input)
     return {'net' : data.getElementsByTagName('net'),
             'resistors' : data.getElementsByTagName('resistor'),
             'capactors' : data.getElementsByTagName('capactor'),
             'diodes' : data.getElementsByTagName('diode')}
+
 
 def get_edges_from_record(record, is_diode):
     attrs = record.attributes
@@ -23,6 +25,7 @@ def get_edges_from_record(record, is_diode):
     if is_diode:
         reverse_resistance = float(attrs['reverse_resistance'].value)
         yield (target, source, reverse_resistance)
+
 
 def add_edge_to_matrix(matrix, edge):
     source, target, resistance = edge[0], edge[1], edge[2]
@@ -50,11 +53,13 @@ def build_matrix(data):
 
     return matrix.tolist()
 
+
 def write_matrix(output, matrix):
     with open(output, 'w') as f:
         f.write('\n'.join(map(lambda row: '\t'.join(map(lambda x: str(round(x, 4)), row)), matrix)))
 
-if __name__ == "__main__" :
+
+if __name__ == "__main__":
     if len(sys.argv) != 3:
         print('Incorrect input format\n')
     else:
